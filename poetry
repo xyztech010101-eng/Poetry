@@ -1,0 +1,1755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Poet's Poetry | Bashudev Upadhyay</title>
+
+<style>
+
+/* =========================
+   BASIC SETTINGS
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --background: #f7f1e8;
+    --card: #fffdf9;
+    --text: #2c211b;
+    --muted: #776b63;
+    --primary: #70452e;
+    --gold: #b8894f;
+    --border: #e3d6c8;
+}
+
+body.dark {
+    --background: #171311;
+    --card: #231d19;
+    --text: #f5eee8;
+    --muted: #b9aaa0;
+    --primary: #d4a06b;
+    --gold: #c18c52;
+    --border: #3b3029;
+}
+
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    background: var(--background);
+    color: var(--text);
+    min-height: 100vh;
+    transition: 0.3s;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    background: rgba(247,241,232,0.94);
+    backdrop-filter: blur(12px);
+
+    border-bottom: 1px solid var(--border);
+}
+
+body.dark nav {
+    background: rgba(23,19,17,0.94);
+}
+
+.nav-container {
+    max-width: 1150px;
+    margin: auto;
+
+    padding: 15px 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    color: var(--primary);
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.logo small {
+    display: block;
+
+    font-family: Arial, sans-serif;
+
+    color: var(--muted);
+
+    font-size: 10px;
+    letter-spacing: 3px;
+    margin-top: 3px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 18px;
+    align-items: center;
+}
+
+.nav-links button {
+    border: none;
+    background: transparent;
+
+    color: var(--text);
+
+    font-family: Georgia, serif;
+    font-size: 15px;
+
+    cursor: pointer;
+}
+
+.nav-links button:hover {
+    color: var(--primary);
+}
+
+.theme-button {
+    font-size: 20px !important;
+}
+
+
+/* =========================
+   PAGE SYSTEM
+========================= */
+
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    max-width: 1150px;
+
+    margin: auto;
+
+    min-height: 650px;
+
+    padding: 80px 20px;
+
+    display: grid;
+
+    grid-template-columns: 1.4fr 0.6fr;
+
+    align-items: center;
+
+    gap: 50px;
+}
+
+.hero-title {
+    font-size: clamp(50px, 7vw, 85px);
+
+    line-height: 0.98;
+
+    margin-bottom: 25px;
+}
+
+.hero-title span {
+    color: var(--primary);
+}
+
+.hero-description {
+    max-width: 650px;
+
+    color: var(--muted);
+
+    font-size: 20px;
+
+    line-height: 1.8;
+}
+
+.hero-buttons {
+    margin-top: 30px;
+
+    display: flex;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+.btn {
+    padding: 13px 22px;
+
+    border-radius: 30px;
+
+    border: 1px solid var(--primary);
+
+    font-family: Georgia, serif;
+
+    cursor: pointer;
+
+    font-size: 15px;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: white;
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--primary);
+}
+
+.btn:hover {
+    opacity: 0.85;
+}
+
+
+/* =========================
+   PROFILE
+========================= */
+
+.profile-card {
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 25px;
+
+    padding: 35px;
+
+    text-align: center;
+
+    box-shadow: 0 15px 40px rgba(50,35,25,0.10);
+}
+
+.profile-image {
+    width: 140px;
+    height: 140px;
+
+    margin: auto;
+    margin-bottom: 20px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            var(--gold)
+        );
+
+    color: white;
+
+    font-size: 45px;
+
+    font-weight: bold;
+}
+
+.profile-card h2 {
+    margin-bottom: 8px;
+}
+
+.profile-card p {
+    color: var(--muted);
+
+    line-height: 1.7;
+}
+
+
+/* =========================
+   SECTIONS
+========================= */
+
+.section {
+    max-width: 1150px;
+
+    margin: auto;
+
+    padding: 60px 20px 90px;
+}
+
+.section-title {
+    font-size: 42px;
+
+    margin-bottom: 10px;
+}
+
+.section-description {
+    color: var(--muted);
+
+    margin-bottom: 30px;
+
+    font-size: 17px;
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+.search-box {
+    width: 100%;
+
+    padding: 15px 18px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+    background: var(--card);
+
+    color: var(--text);
+
+    font-size: 16px;
+
+    font-family: Georgia, serif;
+
+    margin-bottom: 20px;
+}
+
+
+/* =========================
+   CATEGORIES
+========================= */
+
+.categories {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-bottom: 30px;
+}
+
+.category {
+    padding: 10px 18px;
+
+    border-radius: 25px;
+
+    border: 1px solid var(--border);
+
+    background: var(--card);
+
+    color: var(--text);
+
+    cursor: pointer;
+
+    font-family: Georgia, serif;
+}
+
+.category:hover,
+.category.active {
+    background: var(--primary);
+
+    color: white;
+}
+
+
+/* =========================
+   POETRY GRID
+========================= */
+
+.poetry-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(280px, 1fr));
+
+    gap: 22px;
+}
+
+
+/* =========================
+   POEM CARD
+========================= */
+
+.poem-card {
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 18px;
+
+    padding: 25px;
+
+    box-shadow:
+        0 10px 30px rgba(50,35,25,0.08);
+
+    transition: 0.25s;
+}
+
+.poem-card:hover {
+    transform: translateY(-5px);
+}
+
+.language {
+    color: var(--gold);
+
+    font-family: Arial, sans-serif;
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 12px;
+}
+
+.poem-card h3 {
+    font-size: 25px;
+
+    margin-bottom: 12px;
+}
+
+.poem-preview {
+    color: var(--muted);
+
+    line-height: 1.8;
+
+    white-space: pre-line;
+
+    max-height: 130px;
+
+    overflow: hidden;
+
+    margin-bottom: 20px;
+}
+
+.poem-bottom {
+    border-top: 1px solid var(--border);
+
+    padding-top: 15px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+}
+
+.read-button {
+    border: none;
+
+    background: none;
+
+    color: var(--primary);
+
+    font-family: Georgia, serif;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.favorite-button {
+    background: none;
+
+    border: none;
+
+    font-size: 22px;
+
+    cursor: pointer;
+
+    color: var(--primary);
+}
+
+
+/* =========================
+   ADD POETRY
+========================= */
+
+.form-container {
+    max-width: 750px;
+
+    margin: auto;
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 20px;
+
+    padding: 35px;
+
+    box-shadow:
+        0 15px 40px rgba(50,35,25,0.10);
+}
+
+.form-group {
+    margin-bottom: 22px;
+}
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-weight: bold;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+    width: 100%;
+
+    padding: 14px;
+
+    border-radius: 10px;
+
+    border: 1px solid var(--border);
+
+    background: var(--background);
+
+    color: var(--text);
+
+    font-family: Georgia, serif;
+
+    font-size: 16px;
+}
+
+.form-textarea {
+    min-height: 320px;
+
+    resize: vertical;
+
+    line-height: 1.8;
+}
+
+
+/* =========================
+   READER
+========================= */
+
+.reader {
+    max-width: 800px;
+
+    margin: auto;
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 20px;
+
+    padding: 50px;
+
+    box-shadow:
+        0 15px 40px rgba(50,35,25,0.10);
+}
+
+.reader-language {
+    color: var(--gold);
+
+    font-family: Arial, sans-serif;
+
+    font-size: 13px;
+
+    letter-spacing: 3px;
+}
+
+.reader h1 {
+    font-size: 45px;
+
+    margin: 15px 0;
+}
+
+.reader-date {
+    color: var(--muted);
+
+    margin-bottom: 35px;
+}
+
+.reader-poem {
+    white-space: pre-line;
+
+    font-size: 21px;
+
+    line-height: 2;
+}
+
+
+/* =========================
+   ABOUT
+========================= */
+
+.about {
+    max-width: 800px;
+
+    margin: auto;
+
+    text-align: center;
+}
+
+.about p {
+    color: var(--muted);
+
+    font-size: 19px;
+
+    line-height: 2;
+}
+
+
+/* =========================
+   EMPTY
+========================= */
+
+.empty {
+    text-align: center;
+
+    padding: 60px 20px;
+
+    color: var(--muted);
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    border-top: 1px solid var(--border);
+
+    text-align: center;
+
+    padding: 35px 20px;
+
+    color: var(--muted);
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:750px) {
+
+    .nav-container {
+        flex-direction: column;
+
+        gap: 12px;
+    }
+
+    .nav-links {
+        gap: 12px;
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+    }
+
+    .nav-links button {
+        font-size: 13px;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+
+        padding-top: 60px;
+    }
+
+    .hero-title {
+        font-size: 52px;
+    }
+
+    .hero-description {
+        font-size: 17px;
+    }
+
+    .profile-card {
+        max-width: 400px;
+
+        margin: auto;
+    }
+
+    .section-title {
+        font-size: 34px;
+    }
+
+    .reader {
+        padding: 30px 20px;
+    }
+
+    .reader h1 {
+        font-size: 34px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<nav>
+
+<div class="nav-container">
+
+<div class="logo">
+
+    Poet's Poetry
+
+    <small>
+        BASHUDEV UPADHYAY
+    </small>
+
+</div>
+
+
+<div class="nav-links">
+
+<button onclick="showPage('home')">
+    Home
+</button>
+
+<button onclick="showPage('poetry')">
+    Poetry
+</button>
+
+<button onclick="showPage('about')">
+    About
+</button>
+
+<button onclick="showPage('add')">
+    + Add Poetry
+</button>
+
+<button
+    class="theme-button"
+    onclick="toggleDarkMode()">
+
+    ◐
+
+</button>
+
+</div>
+
+</div>
+
+</nav>
+
+
+
+<!-- =========================
+     HOME
+========================= -->
+
+<div id="home" class="page active">
+
+<section class="hero">
+
+<div>
+
+<h1 class="hero-title">
+
+    Poet's<br>
+
+    <span>Poetry.</span>
+
+</h1>
+
+
+<p class="hero-description">
+
+    Welcome to my personal collection of poetry —
+    a quiet space where thoughts become words,
+    emotions become verses, and memories become stories.
+
+</p>
+
+
+<div class="hero-buttons">
+
+<button
+    class="btn btn-primary"
+    onclick="showPage('poetry')">
+
+    Explore Poetry
+
+</button>
+
+
+<button
+    class="btn btn-secondary"
+    onclick="showPage('add')">
+
+    Write a Poetry
+
+</button>
+
+</div>
+
+</div>
+
+
+
+<div class="profile-card">
+
+<div class="profile-image">
+
+    BU
+
+</div>
+
+
+<h2>
+    Bashudev Upadhyay
+</h2>
+
+
+<p>
+    Poet • Writer • Dreamer
+</p>
+
+
+<br>
+
+
+<p>
+
+    "Every heart has a story.
+    Sometimes poetry is the language
+    in which it speaks."
+
+</p>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<h2 class="section-title">
+    Featured Poetry
+</h2>
+
+<p class="section-description">
+    A glimpse from my collection.
+</p>
+
+
+<div
+    id="featuredPoems"
+    class="poetry-grid">
+
+</div>
+
+</section>
+
+</div>
+
+
+
+<!-- =========================
+     POETRY PAGE
+========================= -->
+
+<div id="poetry" class="page">
+
+<section class="section">
+
+<h1 class="section-title">
+    Poetry Collection
+</h1>
+
+
+<p class="section-description">
+
+    Explore poems written in
+    Nepali, Hindi and English.
+
+</p>
+
+
+
+<input
+    type="text"
+    id="search"
+    class="search-box"
+    placeholder="Search poetry..."
+    oninput="displayPoems()"
+>
+
+
+
+<div class="categories">
+
+<button
+    class="category active"
+    onclick="selectCategory('All',this)">
+
+    All
+
+</button>
+
+
+<button
+    class="category"
+    onclick="selectCategory('Nepali',this)">
+
+    🇳🇵 Nepali
+
+</button>
+
+
+<button
+    class="category"
+    onclick="selectCategory('Hindi',this)">
+
+     Hindi
+
+</button>
+
+
+<button
+    class="category"
+    onclick="selectCategory('English',this)">
+
+     English
+
+</button>
+
+</div>
+
+
+
+<div
+    id="poetryGrid"
+    class="poetry-grid">
+
+</div>
+
+</section>
+
+</div>
+
+
+
+<!-- =========================
+     ADD POETRY PAGE
+========================= -->
+
+<div id="add" class="page">
+
+<section class="section">
+
+<h1 class="section-title">
+    Add Your Poetry
+</h1>
+
+
+<p class="section-description">
+
+    Write something that deserves to be remembered.
+
+</p>
+
+
+
+<div class="form-container">
+
+
+<div class="form-group">
+
+<label>
+    Poetry Title
+</label>
+
+
+<input
+    id="titleInput"
+    class="form-input"
+    type="text"
+    placeholder="Enter your poetry title"
+>
+
+</div>
+
+
+
+<div class="form-group">
+
+<label>
+    Language
+</label>
+
+
+<select
+    id="languageInput"
+    class="form-select">
+
+<option value="Nepali">
+    Nepali
+</option>
+
+<option value="Hindi">
+     Hindi
+</option>
+
+<option value="English">
+     English
+</option>
+
+</select>
+
+</div>
+
+
+
+<div class="form-group">
+
+<label>
+    Your Poetry
+</label>
+
+
+<textarea
+    id="textInput"
+    class="form-textarea"
+    placeholder="Write your poetry here...
+
+You can write multiple lines.
+
+Your poem will appear exactly
+as you write it.">
+
+</textarea>
+
+</div>
+
+
+
+<button
+    class="btn btn-primary"
+    onclick="publishPoetry()">
+
+    ✒️ Publish Poetry
+
+</button>
+
+
+</div>
+
+</section>
+
+</div>
+
+
+
+<!-- =========================
+     ABOUT PAGE
+========================= -->
+
+<div id="about" class="page">
+
+<section class="section">
+
+<div class="about">
+
+<h1 class="section-title">
+    About the Poet
+</h1>
+
+
+<br>
+
+
+<p>
+
+    I am <strong>Bashudev Upadhyay</strong>,
+    a poet and writer who believes that
+    words can preserve thoughts, memories
+    and emotions.
+
+</p>
+
+
+<br>
+
+
+<p>
+
+    <strong>Poet's Poetry</strong> is my
+    personal space for sharing poetry
+    in Nepali, Hindi and English.
+
+</p>
+
+
+<br>
+
+
+<p>
+
+    Every poem begins with a thought.
+    Every verse carries an emotion.
+    Every poem tells a story.
+
+</p>
+
+</div>
+
+</section>
+
+</div>
+
+
+
+<!-- =========================
+     POEM READER
+========================= -->
+
+<div id="reader" class="page">
+
+<section class="section">
+
+<div class="reader">
+
+
+<div
+    id="readerLanguage"
+    class="reader-language">
+
+</div>
+
+
+<h1 id="readerTitle">
+</h1>
+
+
+<div
+    id="readerDate"
+    class="reader-date">
+
+</div>
+
+
+<div
+    id="readerPoem"
+    class="reader-poem">
+
+</div>
+
+
+<br><br>
+
+
+<button
+    class="btn btn-secondary"
+    onclick="showPage('poetry')">
+
+    ← Back to Poetry
+
+</button>
+
+
+</div>
+
+</section>
+
+</div>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    © 2026 Poet's Poetry
+    <br>
+    <br>
+    By Bashudev Upadhyay
+
+</footer>
+
+
+
+<script>
+
+/* =========================
+   POETRY DATA
+========================= */
+
+let poems = JSON.parse(
+    localStorage.getItem("poetsPoetry")
+) || [
+
+{
+    id: 1,
+
+    title: "The First Word",
+
+    language: "English",
+
+    text:
+`Sometimes a single word
+can carry a thousand thoughts.
+
+Sometimes silence
+is the longest poem.
+
+And sometimes,
+we write only to understand
+what our heart already knows.`,
+
+    date: "17 September 2026",
+
+    favorite: false
+},
+
+
+{
+    id: 2,
+
+    title: "मेरो गाउँ",
+
+    language: "Nepali",
+
+    text:
+`मेरो गाउँको बाटो
+आज पनि उस्तै छ।
+
+तर हिँड्ने पाइला
+र सपनाहरू
+धेरै बदलिएका छन्।`,
+
+    date: "17 September 2026",
+
+    favorite: false
+},
+
+
+{
+    id: 3,
+
+    title: "कुछ बातें",
+
+    language: "Hindi",
+
+    text:
+`कुछ बातें कही नहीं जातीं,
+बस महसूस की जाती हैं।
+
+कुछ यादें मिटती नहीं,
+बस समय के साथ
+खामोश हो जाती हैं।`,
+
+    date: "17 September 2026",
+
+    favorite: false
+}
+
+];
+
+
+let currentCategory = "All";
+
+
+/* =========================
+   SAVE POEMS
+========================= */
+
+function savePoems() {
+
+    localStorage.setItem(
+        "poetsPoetry",
+        JSON.stringify(poems)
+    );
+
+}
+
+
+/* =========================
+   PAGE NAVIGATION
+========================= */
+
+function showPage(pageName) {
+
+    document
+        .querySelectorAll(".page")
+        .forEach(page => {
+
+            page.classList.remove("active");
+
+        });
+
+
+    document
+        .getElementById(pageName)
+        .classList.add("active");
+
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+
+    if(pageName === "poetry") {
+
+        displayPoems();
+
+    }
+
+
+    if(pageName === "home") {
+
+        displayFeatured();
+
+    }
+
+}
+
+
+/* =========================
+   CATEGORY
+========================= */
+
+function selectCategory(category, button) {
+
+    currentCategory = category;
+
+
+    document
+        .querySelectorAll(".category")
+        .forEach(btn => {
+
+            btn.classList.remove("active");
+
+        });
+
+
+    button.classList.add("active");
+
+
+    displayPoems();
+
+}
+
+
+/* =========================
+   DISPLAY POEMS
+========================= */
+
+function displayPoems() {
+
+    const grid =
+        document.getElementById("poetryGrid");
+
+
+    const search =
+        document
+        .getElementById("search")
+        .value
+        .toLowerCase();
+
+
+    const filtered =
+        poems.filter(poem => {
+
+            const categoryMatch =
+                currentCategory === "All" ||
+                poem.language === currentCategory;
+
+
+            const searchMatch =
+                poem.title
+                .toLowerCase()
+                .includes(search)
+
+                ||
+
+                poem.text
+                .toLowerCase()
+                .includes(search);
+
+
+            return categoryMatch && searchMatch;
+
+        });
+
+
+    if(filtered.length === 0) {
+
+        grid.innerHTML = `
+
+            <div class="empty">
+
+                <h2>
+                    No poetry found
+                </h2>
+    
+                <p>
+                    Try another category or search.
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    grid.innerHTML =
+        filtered
+        .map(poem => createPoemCard(poem))
+        .join("");
+
+}
+
+
+/* =========================
+   FEATURED POEMS
+========================= */
+
+function displayFeatured() {
+
+    const container =
+        document.getElementById("featuredPoems");
+
+
+    const featured =
+        poems.slice(0, 3);
+
+
+    container.innerHTML =
+        featured
+        .map(poem => createPoemCard(poem))
+        .join("");
+
+}
+
+
+/* =========================
+   POEM CARD
+========================= */
+
+function createPoemCard(poem) {
+
+    let preview =
+        poem.text.length > 220
+        ? poem.text.substring(0,220) + "..."
+        : poem.text;
+
+
+    return `
+
+        <article class="poem-card">
+
+            <div class="language">
+
+                ${escapeHTML(poem.language)}
+
+            </div>
+
+
+            <h3>
+
+                ${escapeHTML(poem.title)}
+
+            </h3>
+
+
+            <div class="poem-preview">
+
+                ${escapeHTML(preview)}
+
+            </div>
+
+
+            <div class="poem-bottom">
+
+
+                <button
+                    class="read-button"
+                    onclick="readPoem(${poem.id})">
+
+                    Read poem →
+
+                </button>
+
+
+                <button
+                    class="favorite-button"
+                    onclick="favoritePoem(${poem.id})">
+
+                    ${poem.favorite ? "♥" : "♡"}
+
+                </button>
+
+
+            </div>
+
+        </article>
+
+    `;
+
+}
+
+
+/* =========================
+   READ POEM
+========================= */
+
+function readPoem(id) {
+
+    const poem =
+        poems.find(item => item.id === id);
+
+
+    if(!poem) return;
+
+
+    document
+        .getElementById("readerLanguage")
+        .innerText = poem.language;
+
+
+    document
+        .getElementById("readerTitle")
+        .innerText = poem.title;
+
+
+    document
+        .getElementById("readerDate")
+        .innerText =
+        "Added on " + poem.date;
+
+
+    document
+        .getElementById("readerPoem")
+        .innerText = poem.text;
+
+
+    showPage("reader");
+
+}
+
+
+/* =========================
+   FAVORITE
+========================= */
+
+function favoritePoem(id) {
+
+    const poem =
+        poems.find(item => item.id === id);
+
+
+    if(!poem) return;
+
+
+    poem.favorite =
+        !poem.favorite;
+
+
+    savePoems();
+
+
+    displayPoems();
+
+    displayFeatured();
+
+}
+
+
+/* =========================
+   ADD POETRY
+========================= */
+
+function publishPoetry() {
+
+    const title =
+        document
+        .getElementById("titleInput")
+        .value
+        .trim();
+
+
+    const language =
+        document
+        .getElementById("languageInput")
+        .value;
+
+
+    const text =
+        document
+        .getElementById("textInput")
+        .value
+        .trim();
+
+
+    if(!title) {
+
+        alert(
+            "Please enter a poetry title."
+        );
+
+        return;
+
+    }
+
+
+    if(!text) {
+
+        alert(
+            "Please write your poetry."
+        );
+
+        return;
+
+    }
+
+
+    const newPoem = {
+
+        id: Date.now(),
+
+        title: title,
+
+        language: language,
+
+        text: text,
+
+        date:
+            new Date().toLocaleDateString(
+                "en-GB",
+                {
+                    day: "numeric",
+                    month: "long",
+                    year: "numeric"
+                }
+            ),
+
+        favorite: false
+
+    };
+
+
+    poems.unshift(newPoem);
+
+
+    savePoems();
+
+
+    document
+        .getElementById("titleInput")
+        .value = "";
+
+            
+    document
+        .getElementById("textInput")
+        .value = "";
+
+
+    alert(
+        "✒️ Poetry published successfully!"
+    );
+
+
+    showPage("poetry");
+
+}
+
+
+/* =========================
+   DARK MODE
+========================= */
+
+function toggleDarkMode() {
+
+    document
+        .body
+        .classList
+        .toggle("dark");
+
+
+    localStorage.setItem(
+        "poetsPoetryTheme",
+
+        document.body.classList.contains("dark")
+        ? "dark"
+        : "light"
+    );
+
+}
+
+
+/* =========================
+   LOAD THEME
+========================= */
+
+if(
+    localStorage.getItem(
+        "poetsPoetryTheme"
+    ) === "dark"
+) {
+
+    document.body.classList.add("dark");
+
+}
+
+
+/* =========================
+   SECURITY
+========================= */
+
+function escapeHTML(text) {
+
+    return text
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+}
+
+
+/* =========================
+   START WEBSITE
+========================= */
+
+displayFeatured();
+
+</script>
+
+</body>
+</html>
